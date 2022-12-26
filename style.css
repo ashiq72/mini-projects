@@ -1,0 +1,154 @@
+:root {
+  --primary-color: #d70f64;
+  --gray: rgba(128, 128, 128, 0.208);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+.max-w-xl {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* App */
+.app {
+  margin-top: 10rem;
+}
+
+.app .caption {
+  display: none;
+}
+
+.app .backdrop-text {
+  z-index: 1;
+}
+
+.app .container {
+  background: #e21b70;
+  min-height: 485px;
+  z-index: -1;
+}
+
+.container .max-w-xl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: left;
+  padding: 1rem;
+}
+
+.container .image-container {
+  position: relative;
+  max-width: 424px;
+  min-height: 250px;
+  width: 100%;
+  text-align: center;
+}
+
+.image-container img {
+  position: absolute;
+  width: 100%;
+  max-width: 424px;
+  z-index: 2;
+  top: -80px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-container .sub-heading {
+  width: 100%;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.content-container .text {
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.content-container .buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-container .center-svg {
+  margin: 0 1rem;
+}
+
+.app {
+  margin-top: 70px;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  /* App */
+
+  .app .container {
+    min-height: 314px;
+  }
+
+  .app .caption {
+    display: block;
+  }
+
+  .container .max-w-xl {
+    flex-direction: row-reverse;
+  }
+
+  .container .content-container {
+    width: 55%;
+    text-align: left;
+    margin-right: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container .image-container {
+    width: 45%;
+    text-align: right;
+    max-height: 480px;
+  }
+
+  .image-container img {
+    min-width: 500px;
+  }
+
+  .content-container .sub-heading {
+    font-size: 1.8rem;
+  }
+
+  .content-container .buttons-container {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  /* App */
+  .app .container {
+    padding: 0 2rem;
+  }
+
+  .image-container img {
+    min-width: 600px;
+  }
+
+  .content-container .buttons-container {
+    margin-top: 2rem;
+  }
+}
