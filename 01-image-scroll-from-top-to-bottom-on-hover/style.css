@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .box {
+  width: 580px;
+  height: 400px;
+  /* background: #000; */
+  background-position: top;
+  transition: ease-in-out 8s;
+}
+.container .box.box1 {
+  background: url(./images/image1.png);
+  background-size: cover;
+}
+.container .box.box2 {
+  background: url(./images/image2.png);
+  background-size: cover;
+}
+.container .box:hover {
+  background-position: bottom;
+}
