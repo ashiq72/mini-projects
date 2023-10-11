@@ -21,10 +21,12 @@ body {
 .container .box.box1 {
   background: url(./images/image1.png);
   background-size: cover;
+  border-radius: 10px;
 }
 .container .box.box2 {
   background: url(./images/image2.png);
   background-size: cover;
+  border-radius: 10px;
 }
 .container .box:hover {
   background-position: bottom;
