@@ -5,6 +5,7 @@ Web Effects Project Lists
 </h1>
 
 <p align="center">
+<h2>Live Site lists</h2>
   03- Next-js-Nodemailer: <a href="https://nodemailer-one.vercel.app/">nodemailer-one.vercel.app/
 </a>
   
@@ -13,19 +14,6 @@ Web Effects Project Lists
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
-## Emailware
-
-Car Rental is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <ahmedashik18k@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
-
-## Credits
-
-This software uses the following open source packages:
-
-- [Next Js - App Router](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [GraphQL](https://graphql.org/)
-- [HyGraph](https://hygraph.com/)
-- [Typescript](https://www.typescriptlang.org/)
 
 ## Support
 
