@@ -36,6 +36,6 @@ MIT
 
 ---
 
-> [ashiquzzaman.netlify.app](https://ashiquzzaman.netlify.app/) &nbsp;&middot;&nbsp;
+> [md-ashiquzzaman.vercel.app/](https://md-ashiquzzaman.vercel.app/) &nbsp;&middot;&nbsp;
 > GitHub [@ashiq72](https://github.com/ashiq72) &nbsp;&middot;&nbsp;
 > Twitter [@ashiq72](https://twitter.com/)
