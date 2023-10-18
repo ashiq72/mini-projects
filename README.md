@@ -5,15 +5,10 @@ Web Effects Project Lists
 </h1>
 
 <p align="center">
-<!--   Live Site: <a href="/">https://carrental-ashik72.vercel.app/ -->
+  03- Next-js-Nodemailer: <a href="https://nodemailer-one.vercel.app/">nodemailer-one.vercel.app/
 </a>
   
 </p>
-
-##  Project Features
-
-- Booking Modal
-  - When a user clicks a Rent Now button on the card a popup booking model option will show.
 
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
@@ -44,8 +39,8 @@ This software uses the following open source packages:
 
 ## You may also like...
 
-- [Pomolectron](https://github.com/ashiq72) - A pomodoro app
-- [Correo](https://github.com/ashiq72) - A menubar/taskbar Gmail App for Windows and macOS
+- [Aid Humans](https://github.com/ashiq72/crowdfunding-application-client) - A Crowdfunding website
+- [Tarvel To Go](https://github.com/ashiq72/travel-services-reviews-website-client) - A Travel services review website
 
 ## License
 
