@@ -43,6 +43,18 @@ export default function Home() {
     event.preventDefault();
     setIsDraging(false);
     const files = event.dataTransfer.files;
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].type.split("/")[0] !== "image") continue;
+      if (!images.some((e) => e.name === files[i].name)) {
+        setImages((prevImages) => [
+          ...prevImages,
+          {
+            name: files[i].name,
+            url: URL.createObjectURL(files[i]),
+          },
+        ]);
+      }
+    }
   }
   function uploadImage() {
     console.log("images:", images);
