@@ -1,114 +1,68 @@
 "use client";
-import Image from "next/image";
-import { useRef, useState } from "react";
+import React, { useState } from "react";
+import {
+  DndContext,
+  MouseSensor,
+  DragOverlay,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import { arrayMove, SortableContext } from "@dnd-kit/sortable";
 
-export default function Home() {
-  const [images, setImages] = useState([]);
-  const [isDraging, setIsDraging] = useState(false);
-  const fileInputRef = useRef(null);
-  function selectFiles() {
-    fileInputRef.current.click();
-  }
-  function onFileSelect(event) {
-    const files = event.target.files;
-    if (files.length === 0) return;
-    for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split("/")[0] !== "image") continue;
-      if (!images.some((e) => e.name === files[i].name)) {
-        setImages((prevImages) => [
-          ...prevImages,
-          {
-            name: files[i].name,
-            url: URL.createObjectURL(files[i]),
-          },
-        ]);
-      }
-    }
-  }
-  function deleteImage(index) {
-    setImages((prevImages) => prevImages.filter((_, i) => i !== index));
-    console.log(index);
-  }
+import photos from "./../photos.json";
+import { Grid } from "./components/Grid";
+import { SortablePhoto } from "./components/SortablePhoto";
+import { Photo } from "./components/Photo";
 
-  function onDragOver(event) {
-    event.preventDefault();
-    setIsDraging(true);
-    event.dataTransfer.dropEffect = "copy";
-  }
-  function onDragLeave(event) {
-    event.preventDefault();
-    setIsDraging(false);
-  }
-  function onDrop(event) {
-    event.preventDefault();
-    setIsDraging(false);
-    const files = event.dataTransfer.files;
-    for (let i = 0; i < files.length; i++) {
-      if (files[i].type.split("/")[0] !== "image") continue;
-      if (!images.some((e) => e.name === files[i].name)) {
-        setImages((prevImages) => [
-          ...prevImages,
-          {
-            name: files[i].name,
-            url: URL.createObjectURL(files[i]),
-          },
-        ]);
-      }
-    }
-  }
-  function uploadImage() {
-    console.log("images:", images);
-  }
+const Home = () => {
+  const [items, setItems] = useState(photos);
+
+  const [activeId, setActiveId] = useState(null);
+  const sensors = useSensors(useSensor(MouseSensor));
 
   return (
-    <div className="card">
-      <div className="top">
-        <p>Drog & Drop image uploading</p>
-      </div>
-      <div
-        className="drag-area"
-        onDragOver={onDragOver}
-        onDragLeave={onDragLeave}
-        onDrop={onDrop}
-      >
-        {isDraging ? (
-          <span className="select">Drop images here</span>
-        ) : (
-          <>
-            Drag & Drop image here or
-            <span className="select" role="button" onClick={selectFiles}>
-              Browse
-            </span>
-          </>
-        )}
+    <div className="lg:mx-96 mx-20 my-20 p-4 bg-slate-100 shadow-lg rounded">
+      <Grid columns={5}>
+        <DndContext
+          sensors={sensors}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
+        >
+          <SortableContext items={items}>
+            {items.map((url, index) => (
+              <SortablePhoto key={url} url={url} index={index} />
+            ))}
+          </SortableContext>
 
-        <input
-          name="file"
-          type="file"
-          className="file"
-          multiple
-          ref={fileInputRef}
-          onChange={onFileSelect}
-        ></input>
-      </div>
-      <div className="container">
-        {images?.map((image, index) => (
-          <div key={index} className="image">
-            <span onClick={() => deleteImage(index)} className="delete">
-              &times;
-            </span>
-            <Image alt="" src={image.url} width={200} height={200} />
-          </div>
-        ))}
-      </div>
-      <button
-        type="button"
-        onClick={() => {
-          uploadImage;
-        }}
-      >
-        Upload
-      </button>
+          <DragOverlay adjustScale={true}>
+            {activeId ? (
+              <Photo url={activeId} index={items.indexOf(activeId)} />
+            ) : null}
+          </DragOverlay>
+        </DndContext>
+        <div>upload</div>
+      </Grid>
     </div>
   );
-}
+
+  function handleDragStart(event) {
+    setActiveId(event.active.id);
+  }
+
+  function handleDragEnd(event) {
+    const { active, over } = event;
+
+    if (active.id !== over.id) {
+      setItems((items) => {
+        const oldIndex = items.indexOf(active.id);
+        const newIndex = items.indexOf(over.id);
+
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
+
+    setActiveId(null);
+  }
+};
+
+export default Home;
