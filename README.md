@@ -1,6 +1,5 @@
 <h1 align="center">
-  <br>
-Web Effects Project Lists
+  <br>Simple Project Lists
   <br>
 </h1>
 
